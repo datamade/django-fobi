@@ -42,7 +42,7 @@ class SelectInputForm(forms.Form, BaseFormFieldPluginForm):
     choices = forms.CharField(
         label=_("Choices"),
         required=True,
-        help_text=_("Enter single values/pairs per line. Example:<br/>"
+        help_text=_("Enter single choice option per line. Example:<br/>"
                     "<code>Not at all familiar<br/>"
                     "Slightly familiar<br/>"
                     "Somewhat familiar<br/>"
