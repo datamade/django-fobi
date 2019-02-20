@@ -463,44 +463,44 @@ def get_select_field_choices(raw_choices_data,
 
     # Looping through the raw data
     for choice in raw_choices_data.split('\n'):
+        # choice = choice.strip()
+
+        # # If comma separated key, value
+        # if ',' in choice:
+        #     key, value = choice.split(',', 1)
+        #     key = key.strip()
+        #
+        #     # If type specified, cast to the type
+        #     if key_type and key is not None:
+        #         try:
+        #             key = key_type(key)
+        #         except (ValueError, TypeError):
+        #             return [] if fail_silently else None
+        #
+        #     value = value.strip()
+        #     # If type specified, cast to the type
+        #     if value_type and value is not None:
+        #         try:
+        #             value = value_type(value)
+        #         except (ValueError, TypeError):
+        #             return [] if fail_silently else None
+        #
+        #     if key is not None \
+        #             and key not in keys \
+        #             and value not in values:
+        #         choices.append((key, value))
+        #         keys.add(key)
+        #         values.add(value)
+        #
+        # # If key is also the value
+        # else:
         choice = choice.strip()
-
-        # If comma separated key, value
-        if ',' in choice:
-            key, value = choice.split(',', 1)
-            key = key.strip()
-
-            # If type specified, cast to the type
-            if key_type and key is not None:
-                try:
-                    key = key_type(key)
-                except (ValueError, TypeError):
-                    return [] if fail_silently else None
-
-            value = value.strip()
-            # If type specified, cast to the type
-            if value_type and value is not None:
-                try:
-                    value = value_type(value)
-                except (ValueError, TypeError):
-                    return [] if fail_silently else None
-
-            if key is not None \
-                    and key not in keys \
-                    and value not in values:
-                choices.append((key, value))
-                keys.add(key)
-                values.add(value)
-
-        # If key is also the value
-        else:
-            choice = choice.strip()
-            if choice is not None \
-                    and choice not in keys \
-                    and choice not in values:
-                choices.append((choice, choice))
-                keys.add(choice)
-                values.add(choice)
+        if choice is not None \
+                and choice not in keys \
+                and choice not in values:
+            choices.append((choice, choice))
+            keys.add(choice)
+            values.add(choice)
 
     return choices
 
