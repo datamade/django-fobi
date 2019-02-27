@@ -78,7 +78,6 @@ class FormEntryForm(forms.ModelForm):
         model = FormEntry
         fields = (
             'name',
-            'is_public',
         )
 
     def __init__(self, *args, **kwargs):
