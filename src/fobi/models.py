@@ -431,10 +431,10 @@ class FormEntry(models.Model):
                     "submitted")
     )
     success_page_message = models.TextField(
-        _("Success page body"),
+        _("Success page message"),
         null=True,
         blank=True,
-        help_text=_("Custom message text to display after valid form is "
+        help_text=_("Custom message text to display after a valid survey is "
                     "submitted")
     )
     action = models.CharField(
