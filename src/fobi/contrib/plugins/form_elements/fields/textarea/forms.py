@@ -4,6 +4,8 @@ from django.utils.translation import ugettext_lazy as _
 from fobi.base import BaseFormFieldPluginForm, get_theme
 from fobi.widgets import NumberInput
 
+import uuid
+
 __title__ = 'fobi.contrib.plugins.form_elements.fields.textarea.forms'
 __author__ = 'Artur Barseghyan <artur.barseghyan@gmail.com>'
 __copyright__ = '2014-2018 Artur Barseghyan'
@@ -18,12 +20,11 @@ class TextareaForm(forms.Form, BaseFormFieldPluginForm):
 
     plugin_data_fields = [
         ("label", ""),
-        ("name", ""),
+        ("name", uuid.uuid4()),
         ("help_text", ""),
         ("initial", ""),
         ("required", False),
         ("max_length", ""),
-        ("placeholder", ""),
     ]
 
     label = forms.CharField(
@@ -36,7 +37,7 @@ class TextareaForm(forms.Form, BaseFormFieldPluginForm):
     name = forms.CharField(
         label=_("Name"),
         required=True,
-        widget=forms.widgets.TextInput(
+        widget=forms.widgets.HiddenInput(
             attrs={'class': theme.form_element_html_class}
         )
     )
@@ -48,7 +49,7 @@ class TextareaForm(forms.Form, BaseFormFieldPluginForm):
         )
     )
     initial = forms.CharField(
-        label=_("Initial"),
+        label=_("Initial value"),
         required=False,
         widget=forms.widgets.Textarea(
             attrs={'class': theme.form_element_html_class}
@@ -62,16 +63,9 @@ class TextareaForm(forms.Form, BaseFormFieldPluginForm):
         )
     )
     max_length = forms.IntegerField(
-        label=_("Max length"),
+        label=_("Maximum length"),
         required=False,
         widget=NumberInput(
-            attrs={'class': theme.form_element_html_class}
-        )
-    )
-    placeholder = forms.CharField(
-        label=_("Placeholder"),
-        required=False,
-        widget=forms.widgets.TextInput(
             attrs={'class': theme.form_element_html_class}
         )
     )

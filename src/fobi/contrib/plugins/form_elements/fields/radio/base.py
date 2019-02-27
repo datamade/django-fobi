@@ -29,7 +29,7 @@ class RadioInputPlugin(FormFieldPlugin):
 
     uid = UID
     name = _("Radio")
-    group = _("Fields")
+    group = _("Generic Fields")
     form = RadioInputForm
 
     def get_form_field_instances(self, request=None, form_entry=None,

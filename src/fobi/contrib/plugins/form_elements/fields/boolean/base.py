@@ -17,8 +17,8 @@ class BooleanSelectPlugin(FormFieldPlugin):
     """Boolean select plugin."""
 
     uid = UID
-    name = _("Boolean")
-    group = _("Fields")
+    name = _("Checkbox, single")
+    group = _("Generic Fields")
     form = BooleanSelectForm
 
     def get_form_field_instances(self, request=None, form_entry=None,

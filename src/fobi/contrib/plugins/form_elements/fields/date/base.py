@@ -23,7 +23,7 @@ class DateInputPlugin(FormFieldPlugin):
 
     uid = UID
     name = _("Date")
-    group = _("Fields")
+    group = _("Generic Fields")
     form = DateInputForm
 
     def get_form_field_instances(self, request=None, form_entry=None,

@@ -22,8 +22,8 @@ class TextInputPlugin(FormFieldPlugin):
     """Text field plugin."""
 
     uid = UID
-    name = _("Text")
-    group = _("Fields")
+    name = _("Text, short answer")
+    group = _("Generic Fields")
     form = TextInputForm
 
     def get_form_field_instances(self, request=None, form_entry=None,

@@ -24,7 +24,7 @@ class ContentTextPlugin(FormElementPlugin):
     """Content text plugin."""
 
     uid = UID
-    name = _("Content text")
+    name = _("Help text")
     group = _("Content")
     form = ContentTextForm
 

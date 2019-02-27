@@ -3,6 +3,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from fobi.base import BaseFormFieldPluginForm, get_theme
 
+import uuid
+
 __title__ = 'fobi.contrib.plugins.form_elements.fields.boolean.forms'
 __author__ = 'Artur Barseghyan <artur.barseghyan@gmail.com>'
 __copyright__ = '2014-2018 Artur Barseghyan'
@@ -17,7 +19,7 @@ class BooleanSelectForm(forms.Form, BaseFormFieldPluginForm):
 
     plugin_data_fields = [
         ("label", ""),
-        ("name", ""),
+        ("name", uuid.uuid4()),
         ("help_text", ""),
         ("initial", ""),
         ("required", False)
@@ -33,7 +35,7 @@ class BooleanSelectForm(forms.Form, BaseFormFieldPluginForm):
     name = forms.CharField(
         label=_("Name"),
         required=True,
-        widget=forms.widgets.TextInput(
+        widget=forms.widgets.HiddenInput(
             attrs={'class': theme.form_element_html_class}
         )
     )
@@ -45,7 +47,7 @@ class BooleanSelectForm(forms.Form, BaseFormFieldPluginForm):
         )
     )
     initial = forms.BooleanField(
-        label=_("Initial"),
+        label=_("Initial value"),
         required=False,
         widget=forms.widgets.CheckboxInput(
             attrs={'class': theme.form_element_checkbox_html_class}

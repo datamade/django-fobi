@@ -4,6 +4,8 @@ from django.utils.translation import ugettext_lazy as _
 from fobi.base import BaseFormFieldPluginForm, get_theme
 from fobi.helpers import validate_initial_for_choices
 
+import uuid
+
 __title__ = 'fobi.contrib.plugins.form_elements.fields.select.forms'
 __author__ = 'Artur Barseghyan <artur.barseghyan@gmail.com>'
 __copyright__ = '2014-2015 Artur Barseghyan'
@@ -18,7 +20,7 @@ class SelectInputForm(forms.Form, BaseFormFieldPluginForm):
 
     plugin_data_fields = [
         ("label", ""),
-        ("name", ""),
+        ("name", uuid.uuid4()),
         ("choices", ""),
         ("help_text", ""),
         ("initial", ""),
@@ -35,19 +37,19 @@ class SelectInputForm(forms.Form, BaseFormFieldPluginForm):
     name = forms.CharField(
         label=_("Name"),
         required=True,
-        widget=forms.widgets.TextInput(
+        widget=forms.widgets.HiddenInput(
             attrs={'class': theme.form_element_html_class}
         )
     )
     choices = forms.CharField(
         label=_("Choices"),
         required=True,
-        help_text=_("Enter single choice option per line. Example:<br/>"
-                    "<code>Not at all familiar<br/>"
-                    "Slightly familiar<br/>"
-                    "Somewhat familiar<br/>"
-                    "Moderately familiar<br/>"
-                    "Extremely familiar<br/></code>"
+        help_text=_("Enter a single choice option per line. Example:<br/>"
+                    "<code>Not at all familiar</code><br/>"
+                    "<code>Slightly familiar</code><br/>"
+                    "<code>Somewhat familiar</code><br/>"
+                    "<code>Moderately familiar</code><br/>"
+                    "<code>Extremely familiar</code>"
                     ),
         widget=forms.widgets.Textarea(
             attrs={'class': theme.form_element_html_class}
@@ -61,7 +63,7 @@ class SelectInputForm(forms.Form, BaseFormFieldPluginForm):
         )
     )
     initial = forms.CharField(
-        label=_("Initial"),
+        label=_("Initial value"),
         required=False,
         widget=forms.widgets.TextInput(
             attrs={'class': theme.form_element_html_class}

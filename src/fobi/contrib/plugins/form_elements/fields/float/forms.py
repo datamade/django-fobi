@@ -4,6 +4,8 @@ from django.utils.translation import ugettext_lazy as _
 from fobi.base import BaseFormFieldPluginForm, get_theme
 from fobi.widgets import NumberInput
 
+import uuid
+
 __title__ = 'fobi.contrib.plugins.form_elements.fields.float.forms'
 __author__ = 'Artur Barseghyan <artur.barseghyan@gmail.com>'
 __copyright__ = '2014-2018 Artur Barseghyan'
@@ -18,13 +20,12 @@ class FloatInputForm(forms.Form, BaseFormFieldPluginForm):
 
     plugin_data_fields = [
         ("label", ""),
-        ("name", ""),
+        ("name", uuid.uuid4()),
         ("help_text", ""),
         ("initial", ""),
         ("min_value", None),
         ("max_value", None),
         ("required", False),
-        ("placeholder", ""),
     ]
 
     label = forms.CharField(
@@ -37,7 +38,7 @@ class FloatInputForm(forms.Form, BaseFormFieldPluginForm):
     name = forms.CharField(
         label=_("Name"),
         required=True,
-        widget=forms.widgets.TextInput(
+        widget=forms.widgets.HiddenInput(
             attrs={'class': theme.form_element_html_class}
         )
     )
@@ -49,17 +50,17 @@ class FloatInputForm(forms.Form, BaseFormFieldPluginForm):
         )
     )
     initial = forms.FloatField(
-        label=_("Initial"),
+        label=_("Initial value"),
         required=False,
         widget=NumberInput(attrs={'class': theme.form_element_html_class})
     )
     min_value = forms.FloatField(
-        label=_("Min value"),
+        label=_("Minimum value"),
         required=False,
         widget=NumberInput(attrs={'class': theme.form_element_html_class})
     )
     max_value = forms.FloatField(
-        label=_("Max value"),
+        label=_("Maximum value"),
         required=False,
         widget=NumberInput(attrs={'class': theme.form_element_html_class})
     )
@@ -68,13 +69,6 @@ class FloatInputForm(forms.Form, BaseFormFieldPluginForm):
         required=False,
         widget=forms.widgets.CheckboxInput(
             attrs={'class': theme.form_element_checkbox_html_class}
-        )
-    )
-    placeholder = forms.CharField(
-        label=_("Placeholder"),
-        required=False,
-        widget=forms.widgets.TextInput(
-            attrs={'class': theme.form_element_html_class}
         )
     )
 

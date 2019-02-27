@@ -28,8 +28,8 @@ class ContentTextPlugin(IntegrationFormElementPlugin,
 
     uid = UID
     integrate_with = INTEGRATE_WITH_UID
-    name = _("Content text")
-    group = _("Content")
+    name = _("Help Text")
+    group = _("")
 
     def get_custom_field_instances(self,
                                    form_element_plugin,
