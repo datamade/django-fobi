@@ -21,7 +21,7 @@ class CheckboxSelectMultipleInputForm(forms.Form, BaseFormFieldPluginForm):
 
     plugin_data_fields = [
         ("label", ""),
-        ("name", uuid.uuid4()),
+        ("name", "name"),
         ("choices", ""),
         ("help_text", ""),
         ("initial", ""),

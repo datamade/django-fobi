@@ -6,8 +6,6 @@ from fobi.base import BaseFormFieldPluginForm, get_theme
 from fobi.settings import DEFAULT_MAX_LENGTH, DEFAULT_MIN_LENGTH
 from fobi.widgets import NumberInput
 
-import uuid
-
 __title__ = 'fobi.contrib.plugins.form_elements.fields.text.forms'
 __author__ = 'Artur Barseghyan <artur.barseghyan@gmail.com>'
 __copyright__ = '2014-2018 Artur Barseghyan'
@@ -22,7 +20,7 @@ class TextInputForm(forms.Form, BaseFormFieldPluginForm):
 
     plugin_data_fields = [
         ("label", ""),
-        ("name", uuid.uuid4()),
+        ("name", "name"),
         ("help_text", ""),
         ("initial", ""),
         ("max_length", str(DEFAULT_MAX_LENGTH)),

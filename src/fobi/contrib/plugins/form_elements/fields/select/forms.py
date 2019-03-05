@@ -4,8 +4,6 @@ from django.utils.translation import ugettext_lazy as _
 from fobi.base import BaseFormFieldPluginForm, get_theme
 from fobi.helpers import validate_initial_for_choices
 
-import uuid
-
 __title__ = 'fobi.contrib.plugins.form_elements.fields.select.forms'
 __author__ = 'Artur Barseghyan <artur.barseghyan@gmail.com>'
 __copyright__ = '2014-2015 Artur Barseghyan'
@@ -20,7 +18,7 @@ class SelectInputForm(forms.Form, BaseFormFieldPluginForm):
 
     plugin_data_fields = [
         ("label", ""),
-        ("name", uuid.uuid4()),
+        ("name", "name"),
         ("choices", ""),
         ("help_text", ""),
         ("initial", ""),

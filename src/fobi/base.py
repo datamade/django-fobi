@@ -831,6 +831,7 @@ class BaseFormFieldPluginForm(BasePluginForm):
         :param django.http.HttpRequest request:
         :return bool:
         """
+
         if not getattr(self, 'cleaned_data', None):
             self.full_clean()
 
@@ -852,6 +853,11 @@ class BaseFormFieldPluginForm(BasePluginForm):
                 return False
 
         return True
+
+    def clean_name(self):
+        """ Assign name as unique UUID """
+        name = str(uuid.uuid4())
+        return name
 
     if not DJANGO_GTE_1_8:
         def add_error(self, field, error):

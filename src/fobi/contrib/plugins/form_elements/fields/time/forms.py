@@ -5,8 +5,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from fobi.base import BaseFormFieldPluginForm, get_theme
 
-import uuid
-
 __title__ = 'fobi.contrib.plugins.form_elements.fields.time.forms'
 __author__ = 'Artur Barseghyan <artur.barseghyan@gmail.com>'
 __copyright__ = '2014-2018 Artur Barseghyan'
@@ -21,7 +19,7 @@ class TimeInputForm(forms.Form, BaseFormFieldPluginForm):
 
     plugin_data_fields = [
         ("label", ""),
-        ("name", uuid.uuid4()),
+        ("name", "name"),
         ("help_text", ""),
         ("initial", ""),
         ("required", False)

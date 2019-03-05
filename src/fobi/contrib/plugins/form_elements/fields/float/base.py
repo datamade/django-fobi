@@ -32,7 +32,6 @@ class FloatInputPlugin(FormFieldPlugin):
         widget_attrs = {
             'class': theme.form_element_html_class,
             'type': 'number',
-            'placeholder': self.data.placeholder,
         }
 
         field_kwargs = {
