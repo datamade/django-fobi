@@ -36,7 +36,7 @@ class TextareaForm(forms.Form, BaseFormFieldPluginForm):
     name = forms.CharField(
         label=_("Name"),
         required=True,
-        widget=forms.widgets.TextInput(
+        widget=forms.widgets.HiddenInput(
             attrs={'class': theme.form_element_html_class}
         )
     )
