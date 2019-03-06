@@ -23,6 +23,7 @@ class TextareaForm(forms.Form, BaseFormFieldPluginForm):
         ("initial", ""),
         ("required", False),
         ("max_length", ""),
+        ("placeholder", "")
     ]
 
     label = forms.CharField(
@@ -35,7 +36,7 @@ class TextareaForm(forms.Form, BaseFormFieldPluginForm):
     name = forms.CharField(
         label=_("Name"),
         required=True,
-        widget=forms.widgets.HiddenInput(
+        widget=forms.widgets.TextInput(
             attrs={'class': theme.form_element_html_class}
         )
     )
@@ -64,6 +65,13 @@ class TextareaForm(forms.Form, BaseFormFieldPluginForm):
         label=_("Maximum length"),
         required=False,
         widget=NumberInput(
+            attrs={'class': theme.form_element_html_class}
+        )
+    )
+    placeholder = forms.CharField(
+        label=_("Placeholder"),
+        required=False,
+        widget=forms.widgets.HiddenInput(
             attrs={'class': theme.form_element_html_class}
         )
     )
