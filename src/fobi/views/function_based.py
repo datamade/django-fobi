@@ -435,10 +435,14 @@ def edit_form_entry(request, form_entry_id, theme=None, template_name=None):
     :return django.http.HttpResponse:
     """
     try:
-        form_entry = FormEntry._default_manager \
-                              .select_related('user') \
-                              .prefetch_related('formelemententry_set') \
-                              .get(pk=form_entry_id, user__pk=request.user.pk)
+        form_entry = FormEntry.objects.get(pk=form_entry_id)
+        
+        # Come back to this when working out permissioning system
+
+        # form_entry = FormEntry._default_manager \
+        #                       .select_related('user') \
+        #                       .prefetch_related('formelemententry_set') \
+        #                       .get(pk=form_entry_id, user__pk=request.user.pk)
     # .prefetch_related('formhandlerentry_set') \
     except ObjectDoesNotExist as err:
         raise Http404(ugettext("Form entry not found."))
