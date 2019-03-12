@@ -378,6 +378,10 @@ def create_form_entry(request, theme=None, template_name=None):
                         form_entry.name
                     )
                 )
+
+                # this adds db_store as a default data handler
+                add_form_handler_entry(request, form_entry.id, 'db_store')
+
                 return redirect(
                     'fobi.edit_form_entry', form_entry_id=form_entry.pk
                 )
