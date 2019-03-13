@@ -440,7 +440,7 @@ def edit_form_entry(request, form_entry_id, theme=None, template_name=None):
     """
     try:
         form_entry = FormEntry.objects.get(pk=form_entry_id)
-        
+
         # Come back to this when working out permissioning system
 
         # form_entry = FormEntry._default_manager \
@@ -638,7 +638,7 @@ def delete_form_entry(request, form_entry_id, template_name=None):
         ugettext('The form "{0}" was deleted successfully.').format(obj.name)
     )
 
-    return redirect('fobi.dashboard')
+    return redirect('home')
 
 # *****************************************************************************
 # **************************** Add form element entry *************************
