@@ -14,12 +14,12 @@ Customizations
 This branch has been customized to fit the needs of DataMade's
 `Just Spaces <https://github.com/datamade/just-spaces>`_ project.
 
-- The name field of FormElementEntry forms now generates a unique UUID, rather
-than requiring users to create a unique string for each survey question.
-- Help text for FormElementEntry forms has been updated and expanded to
+- The name field of FormElementEntry forms now generates a unique UUID, \
+rather than requiring users to create a unique string for each survey question.
+- Help text for FormElementEntry forms has been updated and expanded to \
 fit its uses for the Just Spaces tool.
-- FormEntry forms only display "name" field (may want to revisit this;
+- FormEntry forms only display "name" field (may want to revisit this; \
 see https://github.com/datamade/just-spaces/issues/63)
 - A Collect Data handler is automatically attached to new FormEntry objects.
-- User restrictions on form editing have been removed; permissions will be
+- User restrictions on form editing have been removed; permissions will be \
 handled in the main Just Spaces repo.
