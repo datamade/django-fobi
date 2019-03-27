@@ -23,7 +23,7 @@ class IntegerInputPlugin(FormFieldPlugin):
 
     uid = UID
     name = _("Integer")
-    group = _("Fields")
+    group = _("Generic Fields")
     form = IntegerInputForm
 
     def get_form_field_instances(self, request=None, form_entry=None,

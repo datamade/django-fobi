@@ -22,8 +22,8 @@ class TextareaPlugin(FormFieldPlugin):
     """Textarea field plugin."""
 
     uid = UID
-    name = _("Textarea")
-    group = _("Fields")
+    name = _("Text, long answer")
+    group = _("Generic Fields")
     form = TextareaForm
 
     def get_form_field_instances(self, request=None, form_entry=None,

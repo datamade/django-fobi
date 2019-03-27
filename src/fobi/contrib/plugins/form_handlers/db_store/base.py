@@ -44,7 +44,7 @@ class DBStoreHandlerPlugin(FormHandlerPlugin):
     """
 
     uid = UID
-    name = _("DB store")
+    name = _("Collect data")
     allow_multiple = False
 
     def run(self, form_entry, request, form, form_element_entries=None):
@@ -183,6 +183,7 @@ class DBStoreWizardHandlerPlugin(FormWizardHandlerPlugin):
             saved_data=json.dumps(cleaned_data)
         )
         saved_form_wizard_data_entry.save()
+
 
     def custom_actions(self, form_wizard_entry, request=None):
         """Custom actions.

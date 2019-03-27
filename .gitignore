@@ -21,6 +21,7 @@ ghostdriver.log
 tags
 codebin.py
 examples/mezzanine_example/dev.db
+*.DS_STORE
 
 MANIFEST.in~
 MIND_BUCKET.rst

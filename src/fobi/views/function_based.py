@@ -378,6 +378,10 @@ def create_form_entry(request, theme=None, template_name=None):
                         form_entry.name
                     )
                 )
+
+                # this adds db_store as a default data handler
+                add_form_handler_entry(request, form_entry.id, 'collect_data')
+
                 return redirect(
                     'fobi.edit_form_entry', form_entry_id=form_entry.pk
                 )
@@ -435,10 +439,14 @@ def edit_form_entry(request, form_entry_id, theme=None, template_name=None):
     :return django.http.HttpResponse:
     """
     try:
-        form_entry = FormEntry._default_manager \
-                              .select_related('user') \
-                              .prefetch_related('formelemententry_set') \
-                              .get(pk=form_entry_id, user__pk=request.user.pk)
+        form_entry = FormEntry.objects.get(pk=form_entry_id)
+
+        # Come back to this when working out permissioning system
+
+        # form_entry = FormEntry._default_manager \
+        #                       .select_related('user') \
+        #                       .prefetch_related('formelemententry_set') \
+        #                       .get(pk=form_entry_id, user__pk=request.user.pk)
     # .prefetch_related('formhandlerentry_set') \
     except ObjectDoesNotExist as err:
         raise Http404(ugettext("Form entry not found."))
@@ -630,7 +638,7 @@ def delete_form_entry(request, form_entry_id, template_name=None):
         ugettext('The form "{0}" was deleted successfully.').format(obj.name)
     )
 
-    return redirect('fobi.dashboard')
+    return redirect('home')
 
 # *****************************************************************************
 # **************************** Add form element entry *************************

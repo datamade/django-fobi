@@ -19,10 +19,9 @@ class TimeInputForm(forms.Form, BaseFormFieldPluginForm):
 
     plugin_data_fields = [
         ("label", ""),
-        ("name", ""),
+        ("name", "name"),
         ("help_text", ""),
         ("initial", ""),
-        ("input_formats", ""),
         ("required", False)
     ]
 
@@ -36,7 +35,7 @@ class TimeInputForm(forms.Form, BaseFormFieldPluginForm):
     name = forms.CharField(
         label=_("Name"),
         required=True,
-        widget=forms.widgets.TextInput(
+        widget=forms.widgets.HiddenInput(
             attrs={'class': theme.form_element_html_class}
         )
     )
@@ -48,17 +47,10 @@ class TimeInputForm(forms.Form, BaseFormFieldPluginForm):
         )
     )
     initial = forms.TimeField(
-        label=_("Initial"),
+        label=_("Initial value"),
         required=False,
         widget=forms.widgets.TextInput(
             attrs={'class': theme.form_element_html_class, 'type': 'time'}
-        )
-    )
-    input_formats = forms.CharField(
-        label=_("Input formats"),
-        required=False,
-        widget=forms.widgets.TextInput(
-            attrs={'class': theme.form_element_html_class}
         )
     )
     required = forms.BooleanField(

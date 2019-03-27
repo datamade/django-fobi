@@ -11,7 +11,7 @@ from .forms import TextInputForm
 
 __title__ = 'fobi.contrib.plugins.form_elements.fields.text.base'
 __author__ = 'Artur Barseghyan <artur.barseghyan@gmail.com>'
-__copyright__ = '2014-2018 Artur Barseghyan'
+__copyright__ = '2014-2019 Artur Barseghyan'
 __license__ = 'GPL 2.0/LGPL 2.1'
 __all__ = ('TextInputPlugin',)
 
@@ -22,8 +22,8 @@ class TextInputPlugin(FormFieldPlugin):
     """Text field plugin."""
 
     uid = UID
-    name = _("Text")
-    group = _("Fields")
+    name = _("Text, short answer")
+    group = _("Generic Fields")
     form = TextInputForm
 
     def get_form_field_instances(self, request=None, form_entry=None,

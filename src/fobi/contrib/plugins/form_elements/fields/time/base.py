@@ -23,7 +23,7 @@ class TimeInputPlugin(FormFieldPlugin):
 
     uid = UID
     name = _("Time")
-    group = _("Fields")
+    group = _("Generic Fields")
     form = TimeInputForm
 
     def get_form_field_instances(self, request=None, form_entry=None,

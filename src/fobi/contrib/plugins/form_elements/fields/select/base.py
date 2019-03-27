@@ -28,8 +28,8 @@ class SelectInputPlugin(FormFieldPlugin):
     """Select field plugin."""
 
     uid = UID
-    name = _("Select")
-    group = _("Fields")
+    name = _("Dropdown")
+    group = _("Generic Fields")
     form = SelectInputForm
 
     def get_form_field_instances(self, request=None, form_entry=None,

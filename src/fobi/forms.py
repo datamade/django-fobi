@@ -78,16 +78,6 @@ class FormEntryForm(forms.ModelForm):
         model = FormEntry
         fields = (
             'name',
-            'title',
-            'is_public',
-            'active_date_from',
-            'active_date_to',
-            'inactive_page_title',
-            'inactive_page_message',
-            'success_page_title',
-            'success_page_message',
-            'action',
-            # 'is_cloneable',
         )
 
     def __init__(self, *args, **kwargs):
@@ -107,57 +97,6 @@ class FormEntryForm(forms.ModelForm):
         self.fields['name'].widget = forms.widgets.TextInput(
             attrs={'class': theme.form_element_html_class}
         )
-
-        self.fields['title'].widget = forms.widgets.TextInput(
-            attrs={'class': theme.form_element_html_class}
-        )
-
-        self.fields['success_page_title'].widget = forms.widgets.TextInput(
-            attrs={'class': theme.form_element_html_class}
-        )
-
-        self.fields['inactive_page_title'].widget = forms.widgets.TextInput(
-            attrs={'class': theme.form_element_html_class}
-        )
-
-        self.fields['active_date_from'].widget = forms.widgets.DateTimeInput(
-            format='%Y-%m-%d %H:%M',
-            attrs={'class': theme.form_element_html_class}
-        )
-
-        self.fields['active_date_to'].widget = forms.widgets.DateTimeInput(
-            format='%Y-%m-%d %H:%M',
-            attrs={'class': theme.form_element_html_class}
-        )
-
-        if CKEDITOR_INSTALLED:
-            self.fields['success_page_message'].widget = CKEditorWidget(
-                attrs={'class': theme.form_element_html_class}
-            )
-            self.fields['inactive_page_message'].widget = CKEditorWidget(
-                attrs={'class': theme.form_element_html_class}
-            )
-        else:
-            self.fields['success_page_message'].widget = forms.widgets.Textarea(
-                attrs={'class': theme.form_element_html_class}
-            )
-            self.fields['inactive_page_message'].widget = forms.widgets.Textarea(
-                attrs={'class': theme.form_element_html_class}
-            )
-
-        self.fields['action'].widget = forms.widgets.TextInput(
-            attrs={'class': theme.form_element_html_class}
-        )
-
-        # At the moment this is done for Foundation 5 theme. Remove this once
-        # it's possible for a theme to override this form. Alternatively, add
-        # the attrs to the theme API.
-        self.fields['is_public'].widget = forms.widgets.CheckboxInput(
-            attrs={'data-customforms': 'disabled'}
-        )
-        # self.fields['is_cloneable'].widget = forms.widgets.CheckboxInput(
-        #    attrs={'data-customforms': 'disabled'}
-        # )
 
     def clean_action(self):
         """Validate the action (URL).

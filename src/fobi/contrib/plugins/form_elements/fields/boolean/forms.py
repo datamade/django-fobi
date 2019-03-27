@@ -17,7 +17,7 @@ class BooleanSelectForm(forms.Form, BaseFormFieldPluginForm):
 
     plugin_data_fields = [
         ("label", ""),
-        ("name", ""),
+        ("name", "name"),
         ("help_text", ""),
         ("initial", ""),
         ("required", False)
@@ -33,7 +33,7 @@ class BooleanSelectForm(forms.Form, BaseFormFieldPluginForm):
     name = forms.CharField(
         label=_("Name"),
         required=True,
-        widget=forms.widgets.TextInput(
+        widget=forms.widgets.HiddenInput(
             attrs={'class': theme.form_element_html_class}
         )
     )
@@ -45,7 +45,7 @@ class BooleanSelectForm(forms.Form, BaseFormFieldPluginForm):
         )
     )
     initial = forms.BooleanField(
-        label=_("Initial"),
+        label=_("Initial value"),
         required=False,
         widget=forms.widgets.CheckboxInput(
             attrs={'class': theme.form_element_checkbox_html_class}

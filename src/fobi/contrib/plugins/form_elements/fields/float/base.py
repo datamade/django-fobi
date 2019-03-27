@@ -22,8 +22,8 @@ class FloatInputPlugin(FormFieldPlugin):
     """Float input plugin."""
 
     uid = UID
-    name = _("Float")
-    group = _("Fields")
+    name = _("Number")
+    group = _("Generic Fields")
     form = FloatInputForm
 
     def get_form_field_instances(self, request=None, form_entry=None,
@@ -32,7 +32,6 @@ class FloatInputPlugin(FormFieldPlugin):
         widget_attrs = {
             'class': theme.form_element_html_class,
             'type': 'number',
-            'placeholder': self.data.placeholder,
         }
 
         field_kwargs = {

@@ -24,8 +24,8 @@ class CheckboxSelectMultipleInputPlugin(FormFieldPlugin):
     """Checkbox select multiple field plugin."""
 
     uid = UID
-    name = _("Checkbox select multiple")
-    group = _("Fields")
+    name = _("Checkboxes, select multiple")
+    group = _("Generic Fields")
     form = CheckboxSelectMultipleInputForm
 
     def get_form_field_instances(self, request=None, form_entry=None,

@@ -8,7 +8,7 @@ from fobi.widgets import NumberInput
 
 __title__ = 'fobi.contrib.plugins.form_elements.fields.text.forms'
 __author__ = 'Artur Barseghyan <artur.barseghyan@gmail.com>'
-__copyright__ = '2014-2018 Artur Barseghyan'
+__copyright__ = '2014-2019 Artur Barseghyan'
 __license__ = 'GPL 2.0/LGPL 2.1'
 __all__ = ('TextInputForm',)
 
@@ -20,7 +20,7 @@ class TextInputForm(forms.Form, BaseFormFieldPluginForm):
 
     plugin_data_fields = [
         ("label", ""),
-        ("name", ""),
+        ("name", "name"),
         ("help_text", ""),
         ("initial", ""),
         ("max_length", str(DEFAULT_MAX_LENGTH)),
@@ -38,7 +38,7 @@ class TextInputForm(forms.Form, BaseFormFieldPluginForm):
     name = forms.CharField(
         label=_("Name"),
         required=True,
-        widget=forms.widgets.TextInput(
+        widget=forms.widgets.HiddenInput(
             attrs={'class': theme.form_element_html_class}
         )
     )
@@ -74,7 +74,7 @@ class TextInputForm(forms.Form, BaseFormFieldPluginForm):
     placeholder = forms.CharField(
         label=_("Placeholder"),
         required=False,
-        widget=forms.widgets.TextInput(
+        widget=forms.widgets.HiddenInput(
             attrs={'class': theme.form_element_html_class}
         )
     )

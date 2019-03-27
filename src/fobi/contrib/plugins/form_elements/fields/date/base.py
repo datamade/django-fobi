@@ -4,6 +4,8 @@ from django.forms.fields import DateField
 from django.forms.widgets import DateInput
 from django.utils.translation import ugettext_lazy as _
 
+import uuid
+
 from fobi.base import FormFieldPlugin, get_theme
 
 from . import UID
@@ -23,7 +25,7 @@ class DateInputPlugin(FormFieldPlugin):
 
     uid = UID
     name = _("Date")
-    group = _("Fields")
+    group = _("Generic Fields")
     form = DateInputForm
 
     def get_form_field_instances(self, request=None, form_entry=None,
@@ -38,12 +40,9 @@ class DateInputPlugin(FormFieldPlugin):
             'label': self.data.label,
             'help_text': self.data.help_text,
             'initial': self.data.initial,
-            # 'input_formats': self.data.input_formats,
             'required': self.data.required,
             'widget': DateInput(attrs=widget_attrs),
         }
-        # if self.data.input_formats:
-        #     kwargs['input_formats'] = self.data.input_formats
 
         return [(self.data.name, DateField, field_kwargs)]
 
@@ -68,5 +67,4 @@ class DateInputPlugin(FormFieldPlugin):
 
         # Overwrite ``cleaned_data`` of the ``form`` with object qualifier.
         form.cleaned_data[self.data.name] = value
-
         return form
