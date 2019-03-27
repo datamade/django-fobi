@@ -23,6 +23,8 @@ if DJANGO_GTE_1_10:
 else:
     from django.core.urlresolvers import reverse
 
+from pldp.models import Survey, SurveyRow, SurveyComponent, Location, Study
+
 __title__ = 'fobi.contrib.plugins.form_handlers.db_store.base'
 __author__ = 'Artur Barseghyan <artur.barseghyan@gmail.com>'
 __copyright__ = '2014-2018 Artur Barseghyan'
@@ -44,7 +46,7 @@ class DBStoreHandlerPlugin(FormHandlerPlugin):
     """
 
     uid = UID
-    name = _("DB store")
+    name = _("Collect data")
     allow_multiple = False
 
     def run(self, form_entry, request, form, form_element_entries=None):
@@ -92,6 +94,25 @@ class DBStoreHandlerPlugin(FormHandlerPlugin):
             saved_data=json.dumps(cleaned_data)
         )
         saved_form_data_entry.save()
+
+        #### testing ####
+        location = Location.objects.first()
+        study = Study.objects.first()
+        total = 5
+
+        new_survey = Survey(study=study,
+                            location=location)
+        new_survey.save()
+
+        # new_survey_row = SurveyRow(
+        #     survey=new_survey,
+        #     total=total
+        # )
+        # new_survey_row.save()
+        #
+        # for survey_component in all_cleaned_data:
+        #     new_survey_component = SurveyComponent()
+        #     new_survey_component.save()
 
     def custom_actions(self, form_entry, request=None):
         """Custom actions.
@@ -183,6 +204,7 @@ class DBStoreWizardHandlerPlugin(FormWizardHandlerPlugin):
             saved_data=json.dumps(cleaned_data)
         )
         saved_form_wizard_data_entry.save()
+
 
     def custom_actions(self, form_wizard_entry, request=None):
         """Custom actions.
