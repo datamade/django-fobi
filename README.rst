@@ -11,7 +11,7 @@ handling the submitted form data). For full documentation,
 
 Customizations
 ============
-This branch has been customized to fit the needs of DataMade's
+This fork has been customized to fit the needs of DataMade's
 `Just Spaces <https://github.com/datamade/just-spaces>`_ project.
 
 - The name field of FormElementEntry forms now generates a unique UUID,
