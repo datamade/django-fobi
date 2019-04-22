@@ -440,7 +440,7 @@ def edit_form_entry(request, form_entry_id, theme=None, template_name=None):
     """
     try:
         form_entry = FormEntry.objects.get(pk=form_entry_id)
-        type = form_entry.surveyformentry.type
+        survey_type = form_entry.surveyformentry.type
 
         # Come back to this when working out permissioning system
 
@@ -550,13 +550,13 @@ def edit_form_entry(request, form_entry_id, theme=None, template_name=None):
         sort_by_value=SORT_PLUGINS_BY_VALUE,
     )
 
-    if type == 'observational':
+    if survey_type == 'observational':
         try:
             user_form_element_plugins.pop('Intercept')
         except KeyError:
             pass
 
-    elif type == 'intercept':
+    elif survey_type == 'intercept':
         try:
             user_form_element_plugins.pop('Observational')
         except KeyError:
