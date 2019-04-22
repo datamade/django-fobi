@@ -1,9 +1,9 @@
 {% load i18n fobi_tags %}
 
-<h3>{% trans "Edit form" %}</h3>
+<h3>{% trans "Edit" %} {{form_entry.surveyformentry.name}}</h3>
 
 <div class="row">
-    
+
 
     <div class="columns">
 
@@ -19,7 +19,7 @@
 
         <div class="content active" id="tab-form-elements">
 
-          
+
             <!-- Form element plugins -->
             <div>
               <h4 id="form_elements">{% trans "Add elements to your form" %}</h4>
@@ -202,7 +202,7 @@
         </div><!-- tab-form-service -->
 
       </div><!-- tabs-content -->
-        
+
     </div><!-- columns -->
 
 </div><!-- row -->
