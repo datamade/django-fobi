@@ -616,14 +616,19 @@ def append_edit_and_delete_links_to_field(form_element_plugin,
     }
 
     label = safe_text(getattr(form_element_plugin.data, 'label', ''))
-    data_dict.update(
-        {
-            'label': u"{0} ({1})".format(
-                label,
-                safe_text(form_element_plugin.name)
-            )
-        }
-    )
+
+    # this adds a parenthetical question type after the label
+    # commenting it out for now, but may want to use for certain
+    # form_element_plugin.group types
+    
+    # data_dict.update(
+    #     {
+    #         'label': u"{0} ({1})".format(
+    #             label,
+    #             safe_text(form_element_plugin.name)
+    #         )
+    #     }
+    # )
 
     # if 'hidden' == form_element_plugin.uid:
     #    data_dict.update(
