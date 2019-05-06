@@ -9,10 +9,10 @@
 
       <!-- Nav tabs -->
       <dl class="tabs" data-tab="">
-        <dd class="active"><a href="#tab-form-elements">{% trans "Elements" %}</a></dd>
-        <dd><a href="#tab-form-handlers">{% trans "Handlers" %}</a></dd>
-        <dd><a href="#tab-form-properties">{% trans "Properties" %}</a></dd>
-        <dd><a href="#tab-form-service">{% trans "Service" %}</a></dd>
+        <dd class="active"><a href="#tab-form-elements">{% trans "Survey Questions" %}</a></dd>
+        <!-- <dd><a href="#tab-form-handlers">{% trans "Handlers" %}</a></dd> -->
+        <dd><a href="#tab-form-properties">{% trans "Survey Properties" %}</a></dd>
+        <!-- <dd><a href="#tab-form-service">{% trans "Service" %}</a></dd> -->
       </dl>
 
       <div class="tabs-content">
@@ -21,14 +21,10 @@
 
 
             <!-- Form element plugins -->
-            <div>
-              <h4 id="form_elements">{% trans "Add elements to your form" %}</h4>
-            </div>
-
             <div class="panel panel-fobi">
               <div class="panel-body">
                 <a href="javascript:;" data-dropdown="drop_form_elements" class="small secondary button dropdown large-dropdown">
-                  {% trans "Choose form element to add" %}
+                  {% trans "Choose survey question to add" %}
                 </a>
                 <ul id="drop_form_elements" data-dropdown-content class="f-dropdown">
                     {% for group, plugins in user_form_element_plugins.items %}
@@ -145,9 +141,6 @@
         <div class="content" id="tab-form-properties">
 
             <!-- Form properties -->
-            <div>
-              <h4 id="form_properties">{% trans "Form properties" %}</h4>
-            </div>
             <div class="panel panel-fobi">
               <div class="panel-body">
 
