@@ -3,7 +3,7 @@
 {% load i18n %}
 
 {% block form_page_title %}
-  {% if form_entry.surveyformentrypublished %}Run {% else %}Preview {% endif %}{{ form_entry.name }}
+  {% if form_entry.surveyformentry.published %}Run {% else %}Preview {% endif %}{{ form_entry.name }}
 {% endblock form_page_title %}
 
 {% block form_primary_button_text %}{% if fobi_form_submit_button_text %}{{ fobi_form_submit_button_text }}{% else %}{% trans "Submit" %}{% endif %}{% endblock %}
