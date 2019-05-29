@@ -12,18 +12,12 @@
     <link rel="shortcut icon" href="{% block favicon-image %}{% endblock favicon-image %}">
     {% endblock favicon %}
 
-    <title>{% block page-title %}{% endblock page-title %} | {% block site-title %}{% endblock site-title %}</title>
-
     {% block stylesheets %}
     {#<!-- Additional core CSS files that somehow can't be put into the python theme -->#}
     {% endblock stylesheets %}
 
     {% block theme-stylesheets %}
     {#<!-- This is where stylesheets declared in the Python theme are listed -->#}
-
-    {% for css in fobi_theme.get_media_css %}
-    <link href="{{ css }}" rel="stylesheet" media="all" />
-    {% endfor %}
 
     {% endblock theme-stylesheets %}
 
