@@ -478,8 +478,7 @@ def edit_form_entry(request, form_entry_id, theme=None, template_name=None):
                         _("Elements ordering edited successfully.")
                     )
                     return redirect(
-                        reverse('fobi.edit_form_entry',
-                                kwargs={'form_entry_id': form_entry_id})
+                        reverse('surveys-list-edit')
                     )
             except MultiValueDictKeyError as err:
                 messages.error(
@@ -509,10 +508,7 @@ def edit_form_entry(request, form_entry_id, theme=None, template_name=None):
                     )
                 )
                 return redirect(
-                    reverse(
-                        'fobi.edit_form_entry',
-                        kwargs={'form_entry_id': form_entry_id}
-                    )
+                    reverse('surveys-list-edit')
                 )
             except IntegrityError as err:
                 messages.info(
