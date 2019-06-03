@@ -16,6 +16,7 @@ from django.utils.translation import (
     ugettext,
     # ugettext_lazy as _,
 )
+from django.shortcuts import redirect
 
 from nine.versions import DJANGO_GTE_1_10
 
@@ -620,7 +621,7 @@ def append_edit_and_delete_links_to_field(form_element_plugin,
     # this adds a parenthetical question type after the label
     # commenting it out for now, but may want to use for certain
     # form_element_plugin.group types
-    
+
     # data_dict.update(
     #     {
     #         'label': u"{0} ({1})".format(
@@ -852,3 +853,14 @@ def perform_form_entry_import(request, form_data):
                 )
 
     return form_entry
+
+
+def custom_redirect(redirect_setting, view, kwargs=None):
+    redirect_route = getattr(settings, redirect_setting, None)
+
+    if redirect_route:
+        url = reverse(redirect_route)
+    else:
+        url = reverse(view, kwargs)
+
+    return redirect(url)

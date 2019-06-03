@@ -86,6 +86,7 @@ from ..utils import (
     get_wizard_files_upload_dir,
     perform_form_entry_import,
     prepare_form_entry_export_data,
+    custom_redirect
 )
 from ..wizard import (
     # DynamicCookieWizardView,
@@ -477,19 +478,21 @@ def edit_form_entry(request, form_entry_id, theme=None, template_name=None):
                         request,
                         _("Elements ordering edited successfully.")
                     )
-                    return redirect(
-                        reverse('surveys-list-edit')
-                    )
+                    return custom_redirect('FOBI_SAVE_SURVEY_REDIRECT_ROUTE',
+                                           'fobi.edit_form_entry',
+                                           {'form_entry_id': form_entry_id},
+                                          )
+
             except MultiValueDictKeyError as err:
                 messages.error(
                     request,
                     _("Errors occurred while trying to change the "
                       "elements ordering!")
                 )
-                return redirect(
-                    reverse('fobi.edit_form_entry',
-                            kwargs={'form_entry_id': form_entry_id})
-                )
+                return custom_redirect('FOBI_SAVE_SURVEY_REDIRECT_ROUTE',
+                                       'fobi.edit_form_entry',
+                                       {'form_entry_id': form_entry_id}
+                                      )
         else:
             form_element_entry_formset = FormElementEntryFormSet(
                 queryset=form_entry.formelemententry_set.all(),
@@ -507,9 +510,10 @@ def edit_form_entry(request, form_entry_id, theme=None, template_name=None):
                         form_entry.name
                     )
                 )
-                return redirect(
-                    reverse('surveys-list-edit')
-                )
+                return custom_redirect('FOBI_SAVE_SURVEY_REDIRECT_ROUTE',
+                                       'fobi.edit_form_entry',
+                                       {'form_entry_id': form_entry_id}
+                                      )
             except IntegrityError as err:
                 messages.info(
                     request,
