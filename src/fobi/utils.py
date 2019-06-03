@@ -861,6 +861,6 @@ def custom_redirect(redirect_setting, view, kwargs=None):
     if redirect_route:
         url = reverse(redirect_route)
     else:
-        url = reverse(view, kwargs)
+        url = reverse(view, **kwargs)
 
     return redirect(url)
