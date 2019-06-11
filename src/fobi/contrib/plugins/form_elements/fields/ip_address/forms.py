@@ -31,7 +31,7 @@ class IPAddressInputForm(forms.Form, BaseFormFieldPluginForm):
     ]
 
     label = forms.CharField(
-        label=_("Label"),
+        label=_("Question text"),
         required=True,
         widget=forms.widgets.TextInput(
             attrs={'class': theme.form_element_html_class}

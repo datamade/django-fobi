@@ -29,7 +29,7 @@ class CheckboxSelectMultipleInputForm(forms.Form, BaseFormFieldPluginForm):
     ]
 
     label = forms.CharField(
-        label=_("Label"),
+        label=_("Question text"),
         required=True,
         widget=forms.widgets.TextInput(
             attrs={'class': theme.form_element_html_class}
@@ -45,7 +45,7 @@ class CheckboxSelectMultipleInputForm(forms.Form, BaseFormFieldPluginForm):
     choices = forms.CharField(
         label=_("Choices"),
         required=True,
-        help_text=_("Enter a single choice option per line. Example:<br/>"
+        help_text=_("Enter a single choice option per line. For example:<br/>"
                     "<code>Not at all familiar</code><br/>"
                     "<code>Slightly familiar</code><br/>"
                     "<code>Somewhat familiar</code><br/>"
@@ -61,14 +61,17 @@ class CheckboxSelectMultipleInputForm(forms.Form, BaseFormFieldPluginForm):
         required=False,
         widget=forms.widgets.Textarea(
             attrs={'class': theme.form_element_html_class}
-        )
+        ),
+        help_text="This text will show up under the question and provide the \
+                  survey taker with additional information."
     )
     required = forms.BooleanField(
         label=_("Required"),
         required=False,
         widget=forms.widgets.CheckboxInput(
             attrs={'class': theme.form_element_checkbox_html_class}
-        )
+        ),
+        help_text="Is answering this question required to submit the survey?"
     )
 
     def clean_initial(self):

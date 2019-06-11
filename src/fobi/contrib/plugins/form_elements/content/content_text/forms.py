@@ -31,9 +31,10 @@ class ContentTextForm(forms.Form, BasePluginForm):
     ]
 
     text = forms.CharField(
-        label=_("Text"),
+        label=_("Help text"),
         required=True,
-        widget=Textarea(attrs={'class': theme.form_element_html_class})
+        widget=Textarea(attrs={'class': theme.form_element_html_class}),
+        help_text="Use this field for help text in your survey not attached to a particular question."
     )
 
     def clean_text(self):
