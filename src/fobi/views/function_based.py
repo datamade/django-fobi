@@ -255,8 +255,6 @@ dashboard_permissions = [
 ]
 
 
-@login_required
-@permissions_required(satisfy=SATISFY_ANY, perms=dashboard_permissions)
 def dashboard(request, theme=None, template_name=None):
     """Dashboard.
 
@@ -303,8 +301,6 @@ wizards_dashboard_permissions = [
 ]
 
 
-@login_required
-@permissions_required(satisfy=SATISFY_ANY, perms=wizards_dashboard_permissions)
 def form_wizards_dashboard(request, theme=None, template_name=None):
     """Dashboard for form wizards.
 
@@ -356,8 +352,6 @@ create_form_entry_permissions = [
 ]
 
 
-@login_required
-@permissions_required(satisfy=SATISFY_ALL, perms=create_form_entry_permissions)
 def create_form_entry(request, theme=None, template_name=None):
     """Create form entry.
 
@@ -427,9 +421,6 @@ edit_form_entry_permissions = [
     'fobi.delete_formelemententry', 'fobi.delete_formhandlerentry',
 ]
 
-
-@login_required
-@permissions_required(satisfy=SATISFY_ANY, perms=edit_form_entry_permissions)
 def edit_form_entry(request, form_entry_id, theme=None, template_name=None):
     """Edit form entry.
 
@@ -628,9 +619,6 @@ delete_form_entry_permissions = [
 ]
 
 
-@login_required
-@permissions_required(satisfy=SATISFY_ALL,
-                      perms=delete_form_entry_permissions)
 def delete_form_entry(request, form_entry_id, template_name=None):
     """Delete form entry.
 
@@ -1177,9 +1165,6 @@ create_form_wizard_entry_permissions = [
 ]
 
 
-@login_required
-@permissions_required(satisfy=SATISFY_ALL,
-                      perms=create_form_wizard_entry_permissions)
 def create_form_wizard_entry(request, theme=None, template_name=None):
     """Create form wizard entry.
 
@@ -1252,9 +1237,6 @@ edit_form_wizard_entry_permissions = [
 ]
 
 
-@login_required
-@permissions_required(satisfy=SATISFY_ANY,
-                      perms=edit_form_wizard_entry_permissions)
 def edit_form_wizard_entry(request, form_wizard_entry_id, theme=None,
                            template_name=None):
     """Edit form wizard entry.
@@ -1421,9 +1403,6 @@ delete_form_wizard_entry_permissions = [
 ]
 
 
-@login_required
-@permissions_required(satisfy=SATISFY_ALL,
-                      perms=delete_form_wizard_entry_permissions)
 def delete_form_wizard_entry(request, form_wizard_entry_id,
                              template_name=None):
     """Delete form wizard entry.
@@ -2129,8 +2108,6 @@ def form_entry_submitted(request, form_entry_slug=None, template_name=None):
 # *****************************************************************************
 
 
-@login_required
-@permissions_required(satisfy=SATISFY_ALL, perms=create_form_entry_permissions)
 def export_form_entry(request, form_entry_id, template_name=None):
     """Export form entry to JSON.
 
@@ -2161,8 +2138,6 @@ def export_form_entry(request, form_entry_id, template_name=None):
 # *****************************************************************************
 
 
-@login_required
-@permissions_required(satisfy=SATISFY_ALL, perms=create_form_entry_permissions)
 def import_form_entry(request, template_name=None):
     """Import form entry.
 
@@ -2304,9 +2279,6 @@ def import_form_entry(request, template_name=None):
 # *****************************************************************************
 
 
-@login_required
-@permissions_required(satisfy=SATISFY_ALL,
-                      perms=create_form_wizard_entry_permissions)
 def export_form_wizard_entry(request,
                              form_wizard_entry_id,
                              template_name=None):
@@ -2368,9 +2340,6 @@ def export_form_wizard_entry(request,
 # *****************************************************************************
 
 
-@login_required
-@permissions_required(satisfy=SATISFY_ALL,
-                      perms=create_form_wizard_entry_permissions)
 def import_form_wizard_entry(request, template_name=None):
     """Import form wizard entry.
 
@@ -2514,8 +2483,6 @@ def import_form_wizard_entry(request, template_name=None):
 # *****************************************************************************
 
 
-@login_required
-@permissions_required(satisfy=SATISFY_ALL, perms=create_form_entry_permissions)
 def form_importer(request,
                   form_importer_plugin_uid,
                   template_name=None,
