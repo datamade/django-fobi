@@ -26,7 +26,7 @@ class RadioInputForm(forms.Form, BaseFormFieldPluginForm):
     ]
 
     label = forms.CharField(
-        label=_("Label"),
+        label=_("Question text"),
         required=True,
         widget=forms.widgets.TextInput(
             attrs={'class': theme.form_element_html_class}
@@ -58,10 +58,12 @@ class RadioInputForm(forms.Form, BaseFormFieldPluginForm):
         required=False,
         widget=forms.widgets.Textarea(
             attrs={'class': theme.form_element_html_class}
-        )
+        ),
+        help_text="This text will show up under the question and provide the \
+                  survey taker with additional information."
     )
     initial = forms.CharField(
-        label=_("Initial value"),
+        label=_("Default answer"),
         required=False,
         widget=forms.widgets.TextInput(
             attrs={'class': theme.form_element_html_class}
@@ -72,7 +74,8 @@ class RadioInputForm(forms.Form, BaseFormFieldPluginForm):
         required=False,
         widget=forms.widgets.CheckboxInput(
             attrs={'class': theme.form_element_checkbox_html_class}
-        )
+        ),
+        help_text="Is answering this question required to submit the survey?"
     )
 
     def clean_initial(self):

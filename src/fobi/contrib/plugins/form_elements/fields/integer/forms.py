@@ -27,7 +27,7 @@ class IntegerInputForm(forms.Form, BaseFormFieldPluginForm):
     ]
 
     label = forms.CharField(
-        label=_("Label"),
+        label=_("Question text"),
         required=True,
         widget=forms.widgets.TextInput(
             attrs={'class': theme.form_element_html_class}
@@ -48,7 +48,7 @@ class IntegerInputForm(forms.Form, BaseFormFieldPluginForm):
         )
     )
     initial = forms.IntegerField(
-        label=_("Initial value"),
+        label=_("Default answer"),
         required=False,
         widget=NumberInput(attrs={'class': theme.form_element_html_class})
     )
